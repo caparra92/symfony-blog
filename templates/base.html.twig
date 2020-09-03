@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Blog
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+			<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+		{% endblock %}
+	</head>
+	<body>
+		<div id="sidebar">
+			{% block sidebar %}
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<a class="navbar-brand" href="#">Blog</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="{{ path('index') }}">Home
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('login') }}">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('register') }}" tabindex="-1">Register</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			{% endblock %}
+		</div>
+		{% block content %}{% endblock %}
+		{% block javascripts %}
+			<script src="/js/jquery.min.js"/>
+			<script src="/js/bootstrap.min.js"/>
+			<script src="/js/scripts.js"/>
+		{% endblock %}
+	</body>
 </html>
