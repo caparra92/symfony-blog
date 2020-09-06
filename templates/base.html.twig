@@ -29,42 +29,55 @@
 								</a>
 							</li>
 							{% if app.user %}
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('post-create') }}">New Post</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('category-create') }}">New Category</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link left" href="{{ path('app_logout') }}">Logout</a>
-							</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('post-create') }}">New Post</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('category-index') }}">Categories</a>
+								</li>
 							{% else %}
-							<li>
-								<a class="nav-link" href="{{ path('app_login') }}">Login</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('register') }}" tabindex="-1">Register</a>
-							</li>
+								<li>
+									<a class="nav-link" href="{{ path('app_login') }}">Login</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('register') }}" tabindex="-1">Register</a>
+								</li>
 							{% endif %}
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('contact') }}">Contact</a>
 							</li>
 						</ul>
+						{% if app.user %}
+							<div class="float-right nav-item">
+								<a class="nav-link text-secondary" href="{{ path('app_logout') }}">Logout</a>
+								<div>
+								{% endif %}
+							</div>
+						</nav>
+					{% endblock %}
+				</div>
+				{% block content %}{% endblock %}
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{message}}
 					</div>
-				</nav>
-			{% endblock %}
-		</div>
-		{% block content %}{% endblock %}
-		{% block javascripts %}
-			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-			<script src="/js/scripts.js"/>
-		{% endblock %}
-		<footer class="w-100 text-center">
-			<div class="mx-auto">
-				Copyright &copy;2020 - Camilo Parra
-			</div>
-		</footer>
+				{% endfor %}
+				<footer class="navbar navbar-expand bg-dark mt-5 fixed-bottom">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 text-white text-center mx-auto">
+								Copyright &copy;2020 - Camilo Parra
+							</div>
+						</div>
+					</div>
+				</footer>
+				{% block javascripts %}
+					<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+					<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+					<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+					<script src="/js/scripts.js"/>
+				{% endblock %}
+			</body>
+		</html>
 	</body>
 </html>

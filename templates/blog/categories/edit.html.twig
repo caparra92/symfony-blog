@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	Edit Categorie
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-2 mx-auto">
+                <h2>Edit Categorie</h2>
+				<form method="POST" action="/categories/update/{{category.id}}">
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" class="form-control" id="name" name="name" value="{{category.name}}">
+					</div>
+					<div class="form-group">
+						<label for="description">Description</label>
+						<textarea class="form-control" cols="20" rows="5" name="description">{{category.description}}</textarea>
+					</div>
+					<button type="submit" class="btn btn-warning">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

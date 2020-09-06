@@ -62,7 +62,9 @@ class PostsController extends AbstractController
         $entityManager->persist($post);
         $entityManager->flush();
 
-        return $this->redirectToRoute('home');
+        $this->addFlash('Success', 'Post created successfully!!');
+
+        return $this->redirectToRoute('post-index');
     }
 
     public function edit($id) {
@@ -121,7 +123,7 @@ class PostsController extends AbstractController
 
         $entityManager->remove($post);
         $entityManager->flush();
-        
+
         return $this->redirectToRoute('post-index');
     }
 }

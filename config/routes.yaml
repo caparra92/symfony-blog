@@ -57,6 +57,11 @@ post-delete:
   methods: GET
 
 ## Categories CRUD
+category-index:
+  path: /categories
+  controller: App\Controller\CategoriesController::index
+  methods: GET
+
 category-create:
   path: /categories/create
   controller: App\Controller\CategoriesController::create
@@ -78,8 +83,8 @@ category-update:
   methods: POST
 
 category-delete:
-  path: /posts/delete/{id}
-  controller: App\Controller\CategoriesController::delete
+  path: /categories/delete/{id}
+  controller: App\Controller\CategoriesController::destroy
   methods: GET
 
 ## Contact
