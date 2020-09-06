@@ -6,11 +6,12 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -88,6 +89,26 @@ class User
         return $this;
     }
 
+    /**
+     * Get the value of username
+     */ 
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of username
+     *
+     * @return  self
+     */ 
+    public function setUsername($username)
+    {
+        $this->email = $username;
+
+        return $this;
+    }
+
     public function getLastName(): ?string
     {
         return $this->last_name;
@@ -146,6 +167,22 @@ class User
         $this->password = $password;
 
         return $this;
+    }
+
+    public function getSalt()
+    {
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
     }
 
     /**
@@ -240,4 +277,5 @@ class User
 
         return $this;
     }
+
 }
