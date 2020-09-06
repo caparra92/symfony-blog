@@ -1,4 +1,30 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    <h1>Inicia sesión para comenzar a publicar</h1>
+    <div class="container">
+    {% if app.user %}
+        <h4 class="m-3 p-3">Welcome {{app.user.name}}, let's create your first blog post! </h4>
+    {% else %}
+        <h3 class="m-3 p-3">Please log in for create your blog posts </h3>
+    {% endif %}
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2 mx-auto">
+                <h4>Blog topics</h4>
+                <p class="text-justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac consectetur metus. Phasellus aliquam dictum condimentum. Nam et ullamcorper augue, a suscipit ipsum. Fusce eleifend nibh ut tortor accumsan auctor. Sed aliquet lacus laoreet, pretium dolor eu, dictum ante. Sed gravida lorem at sollicitudin mattis. Nulla facilisi. Proin maximus diam ut libero pulvinar pulvinar. Mauris dapibus lectus ut odio fermentum fringilla in sit amet dolor.
+                </p>
+                  <p class="text-justify">
+                    Donec dui ligula, hendrerit id libero non, vehicula consectetur mauris. Praesent cursus nibh non augue vestibulum accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ante mi, ultrices ut euismod non, semper at lorem. Integer diam justo, varius commodo ante a, pulvinar venenatis lectus. Ut sit amet accumsan nunc. Vivamus aliquam est eu tortor mollis, sed tincidunt diam ornare. Mauris quis facilisis nibh, ut sollicitudin risus. Etiam finibus arcu id turpis gravida condimentum. Aliquam consectetur erat mauris.
+                </p>
+                <h4>Blog sections</h4>
+                <h5>Posts</h5>
+                <p class="text-justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac consectetur metus. Phasellus aliquam dictum condimentum. Nam et ullamcorper augue, a suscipit ipsum. Fusce eleifend nibh ut tortor accumsan auctor. Sed aliquet lacus laoreet, pretium dolor eu, dictum ante. Sed gravida lorem at sollicitudin mattis. Nulla facilisi. Proin maximus diam ut libero pulvinar pulvinar. Mauris dapibus lectus ut odio fermentum fringilla in sit amet dolor.
+                </p>
+                <h5>Categories</h5>
+                <p class="text-justify">
+                    Donec dui ligula, hendrerit id libero non, vehicula consectetur mauris. Praesent cursus nibh non augue vestibulum accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ante mi, ultrices ut euismod non, semper at lorem. Integer diam justo, varius commodo ante a, pulvinar venenatis lectus. Ut sit amet accumsan nunc. Vivamus aliquam est eu tortor mollis, sed tincidunt diam ornare. Mauris quis facilisis nibh, ut sollicitudin risus. Etiam finibus arcu id turpis gravida condimentum. Aliquam consectetur erat mauris.
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
