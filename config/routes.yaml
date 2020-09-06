@@ -7,17 +7,88 @@ index:
   controller: App\Controller\BlogController::index
   methods: GET
 
-login:
-  path: /login
-  controller: App\Controller\BlogController::login
-  methods: GET
+## Users CRUD
 
 register:
   path: /register
   controller: App\Controller\BlogController::register
   methods: GET
 
+user-store:
+  path: /users/store
+  controller: App\Controller\UsersController::store
+  methods: POST
+
 home:
   path: /home
   controller: App\Controller\BlogController::home
   methods: GET
+
+## Posts CRUD
+
+post-index:
+  path: /posts
+  controller: App\Controller\PostsController::index
+  methods: GET
+
+post-create:
+  path: /posts/create
+  controller: App\Controller\PostsController::create
+  methods: GET
+
+post-store:
+  path: /posts/store
+  controller: App\Controller\PostsController::store
+  methods: POST
+
+post-edit:
+  path: /posts/edit/{id}
+  controller: App\Controller\PostsController::edit
+  methods: GET
+
+post-update:
+  path: /posts/update/{id}
+  controller: App\Controller\PostsController::update
+  methods: POST
+
+post-delete:
+  path: /posts/delete/{id}
+  controller: App\Controller\PostsController::destroy
+  methods: GET
+
+## Categories CRUD
+category-create:
+  path: /categories/create
+  controller: App\Controller\CategoriesController::create
+  methods: GET
+
+category-store:
+  path: /categories/store
+  controller: App\Controller\CategoriesController::store
+  methods: POST
+
+category-edit:
+  path: /categories/edit/{id}
+  controller: App\Controller\CategoriesController::edit
+  methods: GET
+
+category-update:
+  path: /categories/update/{id}
+  controller: App\Controller\CategoriesController::update
+  methods: POST
+
+category-delete:
+  path: /posts/delete/{id}
+  controller: App\Controller\CategoriesController::delete
+  methods: GET
+
+## Contact
+contact:
+  path: /contact
+  controller: App\Controller\BlogController::contact
+  methods: GET
+
+contact-store:
+  path: /contact/store
+  controller: App\Controller\ContactController::store
+  methods: POST
