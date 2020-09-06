@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	Edit Post
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-2 mx-auto">
+                <h2>Edit Post</h2>
+				<form method="POST" action="/posts/update/{{post.id}}" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" class="form-control" id="title" name="title" value="{{post.title}}">
+					</div>
+					<div class="form-group">
+						<label for="description">Description</label>
+						<textarea class="form-control" cols="20" rows="5" name="description" value="{{post.description}}"></textarea>
+					</div>
+          <div class="form-group">
+						<label for="category">Category</label>
+						<select class="form-control" name="category_id">
+							<option value="" selected>Select Category</option>
+							{% for category in categories %}
+								<option value="{{category.id}}">{{category.name}}</option>
+							{% endfor %}
+            </select>
+					</div>
+          <div class="form-group">
+						<img class="img-fluid" src="{{ asset('uploads/files/' ~ post.image) }}" width="100" height="100">
+					</div>
+					<div class="form-group">
+						<label for="image">Image</label>
+						<input type="file" class="form-control" id="image" name="image">
+					</div>
+					<button type="submit" class="btn btn-warning">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

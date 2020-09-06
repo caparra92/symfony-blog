@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 mx-auto">
+
+				{% for post in posts %}
+					<div class="w-100 d-flex justify-content-between">
+						<h3>{{post.title}}</h1>
+						<div>
+							<a class="btn btn-warning" href="posts/edit/{{post.id}}">
+								<i class="fa fa-edit"></i>
+							</a>
+							<a class="btn btn-danger" onClick="confirm('Are you sure you want to delete this post?')" href="posts/delete/{{post.id}}">
+								<i class="fa fa-trash"></i>
+							</a>
+						</div>
+					</div>
+					<img class="img-fluid" src="{{ asset('uploads/files/' ~ post.image) }}">
+					<p>{{post.description}}</p>
+					<small>{{ post.user.name }}
+						|
+						{{post.date|date('Y-m-d')}}</small>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
