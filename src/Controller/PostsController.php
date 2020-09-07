@@ -21,6 +21,14 @@ class PostsController extends AbstractController
         return $this->render('blog/posts/index.html.twig',['posts'=>$posts]);
     }
 
+    public function view($id) {
+        $repository = $this->getDoctrine()->getRepository(Post::class);
+        $posts = $repository->findAll();
+        $post = $repository->find($id);
+
+        return $this->render('blog/posts/view.html.twig',['post'=>$post,'posts'=>$posts]);
+    }
+
     public function create() {
         $repository = $this->getDoctrine()->getRepository(Category::class);
         $categories = $repository->findAll();
